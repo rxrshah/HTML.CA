@@ -45,6 +45,89 @@
             border-radius: 8px;
             overflow: hidden;
         }
+        /* Responsive Table Styling */
+        .adv-table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .adv-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        .adv-table th, .adv-table td {
+            border: 1px solid #bbb;
+            padding: 10px 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .adv-table th {
+            background: #e3f2fd;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+        .adv-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .adv-table code {
+            background: #f4f4f4;
+            border-radius: 3px;
+            padding: 2px 4px;
+            color: #c2185b;
+        }
+        @media (max-width: 700px) {
+            .adv-table, .adv-table thead, .adv-table tbody, .adv-table th, .adv-table td, .adv-table tr {
+                display: block;
+            }
+            .adv-table th {
+                position: sticky;
+                top: 0;
+                z-index: 2;
+            }
+            .adv-table td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+            .adv-table td:before {
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                width: 45%;
+                white-space: nowrap;
+                font-weight: bold;
+                color: #1976d2;
+                content: attr(data-label);
+            }
+        }
+        .adv-link {
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .adv-link:hover {
+            color: #d84315 !important;
+        }
+        .adv-icon {
+            font-size: 1.2em;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+        .adv-tip {
+            background: #e8f5e9;
+            border-left: 4px solid #43a047;
+            padding: 8px 12px;
+            margin: 10px 0 0 0;
+            font-size: 1em;
+        }
+        .adv-ques {
+            background: #fffde7;
+            border-left: 4px solid #fbc02d;
+            padding: 8px 12px;
+            margin: 12px 0 0 0;
+            font-size: 1em;
+        }
     </style>
 </head>
 <body>
@@ -75,156 +158,215 @@
     </div>
     <hr>
 
-    <!-- ADVANCED LINKS & ATTRIBUTES (IMPROVED) -->
+    <!-- ADVANCED LINKS & ATTRIBUTES (POWERFUL & EASY) -->
     <div class="section">
-    <h2>Advanced Links & Attributes</h2>
-    <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+    <h2>Advanced Links & Attributes (Powerful & Easy)</h2>
+    <div class="adv-table-container">
+    <table class="adv-table">
+        <thead>
         <tr>
-            <th style="width:120px;">Attribute/Tag</th>
+            <th>Element/Attr</th>
             <th>Purpose</th>
             <th>Sample Code</th>
             <th>Output</th>
             <th>Details & Tips</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
-            <td><b>target</b></td>
-            <td>Open link in new tab, same tab, etc.</td>
-            <td>
-<pre>
-&lt;a href="https://ums.lpu.in" 
-   target="_blank"&gt;New Tab&lt;/a&gt;
-</pre>
+            <td data-label="Element/Attr"><b>target</b></td>
+            <td data-label="Purpose">Open link in new tab, same tab, etc.</td>
+            <td data-label="Sample Code">
+                <code>&lt;a href="https://lpu.in" target="_blank"&gt;LPU&lt;/a&gt;</code>
             </td>
-            <td>
-                <a href="https://ums.lpu.in" target="_blank" style="color:#1976d2;text-decoration:underline;font-weight:bold;">New Tab <span title="Opens in new tab" style="font-size:1.1em;">&#8599;</span></a>
+            <td data-label="Output">
+                <a href="https://lpu.in" target="_blank" class="adv-link" style="color:#1976d2;">LPU <span class="adv-icon" title="Opens in new tab">&#8599;</span></a>
             </td>
-            <td>
-                <ul style="margin:0; padding-left:18px;">
+            <td data-label="Details & Tips">
+                <ul>
                     <li><b>_blank</b>: New tab/window <span style="color:green;">(most used)</span></li>
                     <li>_self: Same tab (default)</li>
                     <li>_parent: Parent frame</li>
                     <li>_top: Full browser window</li>
                 </ul>
-                <div class="tip" style="margin:6px 0 0 0;">Use <b>target="_blank"</b> for external links!</div>
+                <div class="adv-tip">Use <b>target="_blank"</b> for external links!</div>
             </td>
         </tr>
         <tr>
-            <td><b>title</b></td>
-            <td>Show tooltip on hover</td>
-            <td>
-<pre>
-&lt;a href="https://ums.lpu.in" 
-   title="LPU UMS"&gt;Example&lt;/a&gt;
-</pre>
+            <td data-label="Element/Attr"><b>title</b></td>
+            <td data-label="Purpose">Show tooltip on hover</td>
+            <td data-label="Sample Code">
+                <code>&lt;a href="#" title="More Info"&gt;Hover me&lt;/a&gt;</code>
             </td>
-            <td>
-                <a href="https://ums.lpu.in" title="LPU UMS" style="color:#388e3c;">Example <span style="font-size:1.1em;" title="Tooltip">&#9432;</span></a>
+            <td data-label="Output">
+                <a href="#" title="More Info" class="adv-link" style="color:#388e3c;">Hover me <span class="adv-icon" title="Tooltip">&#9432;</span></a>
             </td>
-            <td>
-                <ul style="margin:0; padding-left:18px;">
+            <td data-label="Details & Tips">
+                <ul>
                     <li>Shows extra info on hover</li>
                     <li>Improves accessibility</li>
                 </ul>
-                <div class="tip" style="margin:6px 0 0 0;">Great for hints or descriptions!</div>
+                <div class="adv-tip">Great for hints or descriptions!</div>
             </td>
         </tr>
         <tr>
-            <td><b>download</b></td>
-            <td>Download file instead of open</td>
-            <td>
-<pre>
-&lt;a href="file.pdf" 
-   download="myFile.pdf"&gt;
-   Download PDF
-&lt;/a&gt;
-</pre>
+            <td data-label="Element/Attr"><b>download</b></td>
+            <td data-label="Purpose">Download file instead of open</td>
+            <td data-label="Sample Code">
+                <code>&lt;a href="file.pdf" download="Notes.pdf"&gt;Download PDF&lt;/a&gt;</code>
             </td>
-            <td>
-                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" download="myFile.pdf" style="color:#d32f2f;font-weight:bold;">Download PDF <span style="font-size:1.1em;">&#128190;</span></a>
+            <td data-label="Output">
+                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" download="Notes.pdf" class="adv-link" style="color:#d32f2f;">Download PDF <span class="adv-icon">&#128190;</span></a>
             </td>
-            <td>
-                <ul style="margin:0; padding-left:18px;">
+            <td data-label="Details & Tips">
+                <ul>
                     <li>Triggers file download</li>
                     <li>Can set custom filename</li>
                 </ul>
-                <div class="tip" style="margin:6px 0 0 0;">Use for notes, assignments, etc.</div>
+                <div class="adv-tip">Use for notes, assignments, etc.</div>
             </td>
         </tr>
         <tr>
-            <td><b>&lt;a&gt; + &lt;img&gt;</b></td>
-            <td>Clickable image link</td>
-            <td>
-<pre>
-&lt;a href="example.html"&gt;
-  &lt;img src="smiley.gif" 
-       alt="SampleImage"&gt;
+            <td data-label="Element/Attr"><b>&lt;a&gt; + &lt;img&gt;</b></td>
+            <td data-label="Purpose">Clickable image link</td>
+            <td data-label="Sample Code">
+                <code>
+&lt;a href="home.html"&gt;<br>
+&nbsp;&lt;img src="logo.png" alt="Logo"&gt;<br>
 &lt;/a&gt;
-</pre>
+                </code>
             </td>
-            <td>
+            <td data-label="Output">
                 <a href="https://www.google.com" target="_blank">
                     <img src="https://www.w3schools.com/html/smiley.gif" alt="SampleImage" height="32" style="vertical-align:middle;border-radius:4px;box-shadow:0 1px 4px #0002;">
                 </a>
             </td>
-            <td>
-                <ul style="margin:0; padding-left:18px;">
+            <td data-label="Details & Tips">
+                <ul>
                     <li>Image acts as a link</li>
                     <li>Use <b>alt</b> for accessibility</li>
                 </ul>
-                <div class="tip" style="margin:6px 0 0 0;">Useful for logos, banners, icons!</div>
+                <div class="adv-tip">Useful for logos, banners, icons!</div>
             </td>
         </tr>
         <tr>
-            <td><b>mailto:</b></td>
-            <td>Email link</td>
-            <td>
-<pre>
-&lt;a href="mailto:someone@example.com"&gt;
-  Send Email
-&lt;/a&gt;
-</pre>
+            <td data-label="Element/Attr"><b>mailto:</b></td>
+            <td data-label="Purpose">Email link</td>
+            <td data-label="Sample Code">
+                <code>&lt;a href="mailto:abc@xyz.com"&gt;Send Mail&lt;/a&gt;</code>
             </td>
-            <td>
-                <a href="mailto:someone@example.com" style="color:#6a1b9a;font-weight:bold;">Send Email <span style="font-size:1.1em;">&#9993;</span></a>
+            <td data-label="Output">
+                <a href="mailto:abc@xyz.com" class="adv-link" style="color:#6a1b9a;">Send Mail <span class="adv-icon">&#9993;</span></a>
             </td>
-            <td>
-                <ul style="margin:0; padding-left:18px;">
+            <td data-label="Details & Tips">
+                <ul>
                     <li>Opens default email app</li>
                     <li>Can pre-fill subject/body</li>
                 </ul>
-                <div class="tip" style="margin:6px 0 0 0;">
-                    Example: <code>mailto:abc@xyz.com?subject=Hello</code>
-                </div>
+                <div class="adv-tip">Example: <code>mailto:abc@xyz.com?subject=Hello</code></div>
             </td>
         </tr>
         <tr>
-            <td><b>tel:</b></td>
-            <td>Phone link (call on mobile)</td>
-            <td>
-<pre>
-&lt;a href="tel:+1234567890"&gt;
-  Call Us
-&lt;/a&gt;
-</pre>
+            <td data-label="Element/Attr"><b>tel:</b></td>
+            <td data-label="Purpose">Phone link (call on mobile)</td>
+            <td data-label="Sample Code">
+                <code>&lt;a href="tel:+919999999999"&gt;Call Us&lt;/a&gt;</code>
             </td>
-            <td>
-                <a href="tel:+1234567890" style="color:#0288d1;font-weight:bold;">Call Us <span style="font-size:1.1em;">&#128222;</span></a>
+            <td data-label="Output">
+                <a href="tel:+919999999999" class="adv-link" style="color:#0288d1;">Call Us <span class="adv-icon">&#128222;</span></a>
             </td>
-            <td>
-                <ul style="margin:0; padding-left:18px;">
+            <td data-label="Details & Tips">
+                <ul>
                     <li>Works on mobile devices</li>
                     <li>Click to call directly</li>
                 </ul>
-                <div class="tip" style="margin:6px 0 0 0;">Great for contact pages!</div>
+                <div class="adv-tip">Great for contact pages!</div>
             </td>
         </tr>
+        <tr>
+            <td data-label="Element/Attr"><b>rel</b></td>
+            <td data-label="Purpose">Defines relationship between current and linked page</td>
+            <td data-label="Sample Code">
+                <code>&lt;a href="..." rel="noopener noreferrer"&gt;Link&lt;/a&gt;</code>
+            </td>
+            <td data-label="Output">
+                <a href="https://www.example.com" target="_blank" rel="noopener noreferrer" class="adv-link" style="color:#ff9800;">Safe Link <span class="adv-icon">&#9889;</span></a>
+            </td>
+            <td data-label="Details & Tips">
+                <ul>
+                    <li><b>noopener</b>: Improves security for <code>target="_blank"</code></li>
+                    <li><b>noreferrer</b>: Hides referrer info</li>
+                </ul>
+                <div class="adv-tip">Always use <b>rel="noopener noreferrer"</b> with <b>target="_blank"</b>!</div>
+            </td>
+        </tr>
+        <tr>
+            <td data-label="Element/Attr"><b>tabindex</b></td>
+            <td data-label="Purpose">Keyboard navigation order</td>
+            <td data-label="Sample Code">
+                <code>&lt;a href="#" tabindex="2"&gt;Tab 2&lt;/a&gt;</code>
+            </td>
+            <td data-label="Output">
+                <a href="#" tabindex="2" class="adv-link" style="color:#009688;">Tab 2 <span class="adv-icon">&#8594;</span></a>
+            </td>
+            <td data-label="Details & Tips">
+                <ul>
+                    <li>Set tab order for accessibility</li>
+                    <li>0 = default, -1 = skip</li>
+                </ul>
+                <div class="adv-tip">Helps users who use keyboard navigation!</div>
+            </td>
+        </tr>
+        <tr>
+            <td data-label="Element/Attr"><b>accesskey</b></td>
+            <td data-label="Purpose">Keyboard shortcut for link</td>
+            <td data-label="Sample Code">
+                <code>&lt;a href="#" accesskey="h"&gt;Home&lt;/a&gt;</code>
+            </td>
+            <td data-label="Output">
+                <a href="#" accesskey="h" class="adv-link" style="color:#c2185b;">Home <span class="adv-icon">&#128269;</span></a>
+            </td>
+            <td data-label="Details & Tips">
+                <ul>
+                    <li>Press <b>Alt + [key]</b> (Windows) or <b>Ctrl + Option + [key]</b> (Mac)</li>
+                    <li>Improves accessibility</li>
+                </ul>
+                <div class="adv-tip">Try <b>Alt+H</b> (Windows) for quick access!</div>
+            </td>
+        </tr>
+        </tbody>
     </table>
-    <div class="tip" style="margin-top:10px;">
-        <b>Quick MCQ:</b> <b>target="_blank"</b> = new tab, <b>title</b> = tooltip, <b>download</b> = download file, <b>mailto:</b> = email, <b>tel:</b> = phone call.
+    </div>
+    <div class="adv-tip">
+        <b>MCQ/Output Quickies:</b>
+        <ul>
+            <li><b>target="_blank"</b> = new tab</li>
+            <li><b>title</b> = tooltip on hover</li>
+            <li><b>download</b> = download file</li>
+            <li><b>mailto:</b> = open email app</li>
+            <li><b>tel:</b> = call on mobile</li>
+            <li><b>rel="noopener noreferrer"</b> = security for new tab links</li>
+            <li><b>tabindex</b> = keyboard tab order</li>
+            <li><b>accesskey</b> = keyboard shortcut</li>
+        </ul>
+    </div>
+    <div class="adv-ques">
+        <b>Practice Questions:</b>
+        <ol>
+            <li>What does <b>target="_blank"</b> do? <span style="color:#388e3c;">(Opens link in new tab)</span></li>
+            <li>How do you make a link download a file? <span style="color:#388e3c;">(Add <b>download</b> attribute)</span></li>
+            <li>How to show a tooltip on a link? <span style="color:#388e3c;">(Use <b>title</b> attribute)</span></li>
+            <li>Write a link that opens email with subject "Hello".<br>
+                <code>&lt;a href="mailto:abc@xyz.com?subject=Hello"&gt;Mail&lt;/a&gt;</code>
+            </li>
+            <li>How to make a phone number clickable for calling?</li>
+            <li>What is the use of <b>rel="noopener noreferrer"</b>?</li>
+            <li>How to set tab order for links?</li>
+            <li>How to add a keyboard shortcut to a link?</li>
+        </ol>
     </div>
 </div>
-<hr>
-
+<!-- ...existing code continues below... -->
     <!-- INLINE vs BLOCK TAGS -->
     <div class="section">
         <h2>Block vs Inline Elements</h2>
